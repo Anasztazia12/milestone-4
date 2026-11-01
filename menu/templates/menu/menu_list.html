@@ -32,6 +32,14 @@
                                     <p class="fw-bold text-nowrap mb-0">£{{ item.price }}</p>
                                 </div>
                                 <p class="card-text">{{ item.description }}</p>
+                                <form class="d-flex align-items-end gap-2 mb-3" action="{% url 'bag:add_to_bag' item.pk %}" method="post">
+                                    {% csrf_token %}
+                                    <div>
+                                        <label class="form-label mb-1" for="quantity-{{ item.pk }}">Quantity</label>
+                                        <input class="form-control" id="quantity-{{ item.pk }}" name="quantity" type="number" min="1" value="1" required>
+                                    </div>
+                                    <button class="btn btn-success" type="submit">Add to bag</button>
+                                </form>
                                 <div class="mt-auto">
                                     {% with item.allergens.all as allergens %}
                                     {% if allergens %}

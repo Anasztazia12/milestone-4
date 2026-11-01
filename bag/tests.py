@@ -34,3 +34,32 @@ class BagPageTests(TestCase):
         self.assertContains(response, 'Fish and chips')
         self.assertContains(response, '£25.00')
         self.assertEqual(response.context['total'], Decimal('25.00'))
+
+    def test_guest_can_add_dish_to_session_bag(self):
+        response = self.client.post(
+            reverse('bag:add_to_bag', args=[self.dish.pk]),
+            {'quantity': 2},
+        )
+
+        self.assertRedirects(response, reverse('menu'))
+        self.assertEqual(self.client.session['bag'], {str(self.dish.pk): 2})
+
+    def test_adding_same_dish_increases_quantity(self):
+        session = self.client.session
+        session['bag'] = {str(self.dish.pk): 1}
+        session.save()
+
+        self.client.post(
+            reverse('bag:add_to_bag', args=[self.dish.pk]),
+            {'quantity': 2},
+        )
+
+        self.assertEqual(self.client.session['bag'], {str(self.dish.pk): 3})
+
+    def test_zero_quantity_is_not_added(self):
+        response = self.client.post(
+            reverse('bag:add_to_bag', args=[self.dish.pk]),
+            {'quantity': 1},
+        )
+
+        self.assertEqual(self.client.session.get('bag', {}), {str(self.dish.pk): 1})

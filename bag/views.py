@@ -1,8 +1,31 @@
 from decimal import Decimal
 
-from django.shortcuts import render
+from django.contrib import messages
+from django.shortcuts import get_object_or_404, redirect, render
+from django.views.decorators.http import require_POST
 
 from menu.models import MenuItem
+
+
+@require_POST
+def add_to_bag(request, item_id):
+    """Add the requested quantity of an available menu item to the session bag."""
+    item = get_object_or_404(MenuItem, pk=item_id, is_available=True)
+    try:
+        quantity = int(request.POST.get('quantity', 1))
+    except ValueError:
+        quantity = 0
+
+    if quantity < 1:
+        messages.error(request, 'Choose a quantity of at least 1.')
+        return redirect('menu')
+
+    bag = request.session.get('bag', {})
+    item_key = str(item.pk)
+    bag[item_key] = bag.get(item_key, 0) + quantity
+    request.session['bag'] = bag
+    messages.success(request, f'{item.name} added to your bag.')
+    return redirect('menu')
 
 
 def view_bag(request):
@@ -27,4 +50,3 @@ def view_bag(request):
         'total': total,
     })
 
-# Create your views here.
