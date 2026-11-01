@@ -60,15 +60,27 @@
     height: 220px;
 }
 
-/* Pub favourites carousel */
-.carousel-image {
-    height: 460px;
+/* Pub favourites slider */
+.favourites-track {
+    position: relative;
+    display: flex;
+    gap: 1rem;
+    padding: 0.5rem 0;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
 }
 
-.carousel-caption {
-    right: 10%;
-    bottom: 2.5rem;
-    left: 10%;
+.favourite-card {
+    flex: 0 0 min(80%, 440px);
+    scroll-snap-align: center;
+}
+
+/* Show the whole photo without cropping */
+.favourite-image {
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: contain;
+    background-color: #fff;
 }
 
 /* Captain illustration on the homepage */

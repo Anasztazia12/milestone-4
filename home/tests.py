@@ -10,6 +10,13 @@ class HomePageTests(TestCase):
         self.assertTemplateUsed(response, 'home/index.html')
         self.assertTemplateUsed(response, 'base.html')
 
+    def test_favourites_show_six_dishes_with_controls(self):
+        response = self.client.get(reverse('home'))
+        self.assertContains(response, 'class="favourite-card', count=6)
+        self.assertContains(response, 'favourites.js')
+        self.assertContains(response, 'Baby Puree')
+        self.assertContains(response, 'Cheesecake')
+
     def test_anonymous_user_sees_login_and_register_links(self):
         response = self.client.get(reverse('home'))
         self.assertContains(response, reverse('account_login'))
