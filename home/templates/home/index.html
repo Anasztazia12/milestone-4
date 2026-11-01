@@ -1,12 +1,14 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>The Old Ferryman</title>
-</head>
-<body>
-    <h1>The Old Ferryman</h1>
-    <p>Pub food to order online and collect.</p>
-</body>
-</html>
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<section class="hero">
+    <img src="{% static 'images/pub-interior.jpg' %}" alt="Warm wooden interior of a pub dining room" class="hero-image">
+    <div class="hero-text">
+        <div class="container">
+            <h1>Proper pub food, ready when you are</h1>
+            <p class="lead">Order online, pay in advance and collect at a time that suits you.</p>
+        </div>
+    </div>
+</section>
+{% endblock %}
