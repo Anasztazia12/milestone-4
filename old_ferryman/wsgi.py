@@ -1,5 +1,5 @@
 """
-WSGI config for saltline project.
+WSGI config for old_ferryman project.
 
 It exposes the WSGI callable as a module-level variable named ``application``.
 
@@ -11,6 +11,6 @@ import os
 
 from django.core.wsgi import get_wsgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'saltline.settings')
+os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'old_ferryman.settings')
 
 application = get_wsgi_application()
