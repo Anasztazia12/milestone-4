@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}Your Bag | The Old Ferryman{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h1>Your Bag</h1>
+
+        {% if bag_items %}
+        <div class="table-responsive">
+            <table class="table align-middle">
+                <thead>
+                    <tr>
+                        <th scope="col">Dish</th>
+                        <th scope="col">Price</th>
+                        <th scope="col">Quantity</th>
+                        <th scope="col">Subtotal</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for row in bag_items %}
+                    <tr>
+                        <th scope="row">{{ row.item.name }}</th>
+                        <td>£{{ row.item.price }}</td>
+                        <td>{{ row.quantity }}</td>
+                        <td>£{{ row.subtotal }}</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+                <tfoot>
+                    <tr>
+                        <th scope="row" colspan="3">Total</th>
+                        <td class="fw-bold">£{{ total }}</td>
+                    </tr>
+                </tfoot>
+            </table>
+        </div>
+        {% else %}
+        <p>Your bag is empty.</p>
+        {% endif %}
+
+        <a class="btn btn-outline-success" href="{% url 'menu' %}">Back to menu</a>
+    </div>
+</section>
+{% endblock %}
