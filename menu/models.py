@@ -39,6 +39,7 @@ class MenuItem(models.Model):
     )
     image = models.CharField(max_length=100)
     is_vegetarian = models.BooleanField(default=False)
+    is_baby_friendly = models.BooleanField(default=False)
     is_available = models.BooleanField(default=True)
     allergens = models.ManyToManyField(
         Allergen, blank=True, related_name='items'

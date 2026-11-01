@@ -159,15 +159,15 @@
     "fields": {
       "category": 1,
       "name": "Tomato Soup with Toast",
-      "description": "Smooth tomato soup with herb oil and toasted sourdough. Baby friendly: smooth portion available with no added salt, served without toast.",
+      "description": "Smooth tomato soup with herb oil and toasted sourdough. No-salt baby portion available.",
       "price": "6.50",
       "image": "images/tomato-soup.jpg",
       "is_vegetarian": true,
       "is_available": true,
       "allergens": [
-        2,
-        1
-      ]
+        2
+      ],
+      "is_baby_friendly": true
     }
   },
   {
@@ -176,7 +176,7 @@
     "fields": {
       "category": 1,
       "name": "Carrot Soup with Toast",
-      "description": "Creamy carrot and ginger soup with toasted sourdough. Baby friendly: smooth portion available with no added salt, served without toast.",
+      "description": "Creamy carrot and ginger soup with toasted sourdough. No-salt baby portion available.",
       "price": "6.50",
       "image": "images/carrot-soup.jpg",
       "is_vegetarian": true,
@@ -185,7 +185,8 @@
         2,
         7,
         1
-      ]
+      ],
+      "is_baby_friendly": true
     }
   },
   {
@@ -194,7 +195,7 @@
     "fields": {
       "category": 1,
       "name": "Pumpkin Soup with Toast",
-      "description": "Velvety roasted pumpkin soup with toasted sourdough. Baby friendly: smooth portion available with no added salt, served without toast.",
+      "description": "Velvety roasted pumpkin soup with toasted sourdough. No-salt baby portion available.",
       "price": "6.95",
       "image": "images/pumpkin-soup.jpg",
       "is_vegetarian": true,
@@ -203,7 +204,8 @@
         2,
         7,
         1
-      ]
+      ],
+      "is_baby_friendly": true
     }
   },
   {
@@ -223,7 +225,8 @@
         7,
         9,
         11
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -242,7 +245,8 @@
         4,
         7,
         9
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -261,7 +265,8 @@
         4,
         5,
         7
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -280,7 +285,8 @@
         4,
         7,
         9
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -298,7 +304,8 @@
         2,
         4,
         5
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -315,7 +322,8 @@
       "allergens": [
         7,
         1
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -334,7 +342,8 @@
         4,
         7,
         1
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -351,7 +360,8 @@
       "allergens": [
         1,
         2
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -369,7 +379,8 @@
         2,
         4,
         1
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -383,9 +394,8 @@
       "image": "images/beef-steak.jpg",
       "is_vegetarian": false,
       "is_available": true,
-      "allergens": [
-        7
-      ]
+      "allergens": [],
+      "is_baby_friendly": false
     }
   },
   {
@@ -400,9 +410,9 @@
       "is_vegetarian": false,
       "is_available": true,
       "allergens": [
-        5,
-        7
-      ]
+        5
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -421,7 +431,8 @@
         12,
         11,
         2
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -440,7 +451,8 @@
         4,
         7,
         14
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -457,7 +469,8 @@
       "allergens": [
         12,
         11
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -473,7 +486,8 @@
       "is_available": true,
       "allergens": [
         7
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -490,7 +504,8 @@
       "allergens": [
         2,
         7
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -507,7 +522,8 @@
       "allergens": [
         2,
         7
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -521,7 +537,8 @@
       "image": "images/fries.jpg",
       "is_vegetarian": true,
       "is_available": true,
-      "allergens": []
+      "allergens": [],
+      "is_baby_friendly": false
     }
   },
   {
@@ -539,7 +556,8 @@
         2,
         4,
         7
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -557,7 +575,8 @@
         2,
         4,
         7
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -571,7 +590,8 @@
       "image": "images/baby-puree.jpg",
       "is_vegetarian": true,
       "is_available": true,
-      "allergens": []
+      "allergens": [],
+      "is_baby_friendly": true
     }
   },
   {
@@ -585,7 +605,8 @@
       "image": "images/fruit-puree.jpg",
       "is_vegetarian": true,
       "is_available": true,
-      "allergens": []
+      "allergens": [],
+      "is_baby_friendly": true
     }
   },
   {
@@ -603,7 +624,8 @@
         2,
         4,
         7
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -621,7 +643,8 @@
         2,
         4,
         7
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -640,7 +663,8 @@
         4,
         7,
         12
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -659,7 +683,8 @@
         4,
         7,
         12
-      ]
+      ],
+      "is_baby_friendly": false
     }
   },
   {
@@ -676,7 +701,8 @@
       "allergens": [
         4,
         7
-      ]
+      ],
+      "is_baby_friendly": false
     }
   }
 ]

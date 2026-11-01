@@ -77,6 +77,10 @@ class MenuPageTests(TestCase):
         self.assertContains(response, 'Vegetarian Burger')
         self.assertContains(response, 'text-bg-success')
 
+    def test_baby_friendly_items_are_labelled(self):
+        response = self.client.get(reverse('menu'))
+        self.assertContains(response, 'Baby friendly</span>', count=5)
+
     def test_unavailable_items_are_hidden(self):
         MenuItem.objects.filter(name='Beef Steak').update(is_available=False)
         response = self.client.get(reverse('menu'))

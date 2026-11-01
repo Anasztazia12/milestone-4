@@ -32,14 +32,19 @@
                                     <p class="fw-bold text-nowrap mb-0">£{{ item.price }}</p>
                                 </div>
                                 <p class="card-text">{{ item.description }}</p>
-                                {% if item.is_vegetarian %}
-                                <p><span class="badge text-bg-success">Vegetarian</span></p>
-                                {% endif %}
-                                {% with item.allergens.all as allergens %}
-                                {% if allergens %}
-                                <p class="small text-secondary mt-auto mb-0">Contains: {% for allergen in allergens %}{{ allergen.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
-                                {% endif %}
-                                {% endwith %}
+                                <div class="mt-auto">
+                                    {% with item.allergens.all as allergens %}
+                                    {% if allergens %}
+                                    <p class="small text-secondary mb-2">Contains: {% for allergen in allergens %}{{ allergen.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+                                    {% endif %}
+                                    {% endwith %}
+                                    {% if item.is_vegetarian or item.is_baby_friendly %}
+                                    <div class="d-flex flex-wrap gap-1">
+                                        {% if item.is_vegetarian %}<span class="badge text-bg-success">Vegetarian</span>{% endif %}
+                                        {% if item.is_baby_friendly %}<span class="badge text-bg-info">Baby friendly</span>{% endif %}
+                                    </div>
+                                    {% endif %}
+                                </div>
                             </div>
                         </article>
                     </div>
