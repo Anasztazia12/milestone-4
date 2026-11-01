@@ -159,7 +159,7 @@
     "fields": {
       "category": 1,
       "name": "Tomato Soup with Toast",
-      "description": "Smooth tomato soup with herb oil and toasted sourdough.",
+      "description": "Smooth tomato soup with herb oil and toasted sourdough. Baby friendly: smooth portion available with no added salt, served without toast.",
       "price": "6.50",
       "image": "images/tomato-soup.jpg",
       "is_vegetarian": true,
@@ -176,7 +176,7 @@
     "fields": {
       "category": 1,
       "name": "Carrot Soup with Toast",
-      "description": "Creamy carrot and ginger soup with toasted sourdough.",
+      "description": "Creamy carrot and ginger soup with toasted sourdough. Baby friendly: smooth portion available with no added salt, served without toast.",
       "price": "6.50",
       "image": "images/carrot-soup.jpg",
       "is_vegetarian": true,
@@ -194,7 +194,7 @@
     "fields": {
       "category": 1,
       "name": "Pumpkin Soup with Toast",
-      "description": "Velvety roasted pumpkin soup with toasted sourdough.",
+      "description": "Velvety roasted pumpkin soup with toasted sourdough. Baby friendly: smooth portion available with no added salt, served without toast.",
       "price": "6.95",
       "image": "images/pumpkin-soup.jpg",
       "is_vegetarian": true,

@@ -1,156 +1,19 @@
-/* Site colours */
-:root {
-    --ferry-green: #2f4a2c;
-    --ferry-cream: #f7f3ea;
-}
+/* Bootstrap handles the layout. These rules cover the few sizes it has no class for. */
 
-html {
-    height: 100%;
-}
-
-/* Keep the footer at the bottom of short pages */
-body {
-    display: flex;
-    flex-direction: column;
-    min-height: 100%;
-    background-color: var(--ferry-cream);
-}
-
-main {
-    flex: 1;
-}
-
-/* Navigation */
-.site-nav {
-    background-color: var(--ferry-green);
-}
-
-.site-nav .navbar-brand,
-.site-nav .nav-link {
-    color: #fff;
-}
-
-.site-nav .navbar-toggler {
-    border-color: #fff;
-    filter: invert(1);
-}
-
-/* Homepage hero */
+/* Homepage hero height */
 .hero {
-    position: relative;
     height: 60vh;
     min-height: 320px;
 }
 
-.hero-image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-}
-
-.hero-text {
-    position: absolute;
-    inset: 0;
-    display: flex;
-    align-items: center;
-    color: #fff;
-    background-color: rgba(0, 0, 0, 0.55);
-}
-
-/* Buttons */
-.btn-ferry {
-    color: #fff;
-    background-color: var(--ferry-green);
-    border-color: var(--ferry-green);
-}
-
-.btn-ferry:hover,
-.btn-ferry:focus {
-    color: #fff;
-    background-color: #223720;
-    border-color: #223720;
-}
-
-/* Homepage sections */
-.section {
-    padding: 3rem 0;
-}
-
-.section h2 {
-    margin-bottom: 1.5rem;
-}
-
-.section-light {
-    background-color: #fff;
-}
-
+/* Keep all dish photos the same height */
 .dish-image {
     height: 220px;
-    object-fit: cover;
 }
 
-.about {
-    max-width: 700px;
-    text-align: center;
-}
-
+/* Captain illustration on the homepage */
 .about-image {
     width: 200px;
     max-width: 100%;
     margin-bottom: 1rem;
-}
-
-/* Menu page */
-.menu-nav {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 0.5rem;
-    margin-bottom: 2rem;
-}
-
-.btn-outline-ferry {
-    color: var(--ferry-green);
-    border-color: var(--ferry-green);
-}
-
-.btn-outline-ferry:hover,
-.btn-outline-ferry:focus {
-    color: #fff;
-    background-color: var(--ferry-green);
-}
-
-.menu-category {
-    margin-bottom: 3rem;
-    scroll-margin-top: 1rem;
-}
-
-.menu-price {
-    margin: 0;
-    font-weight: 700;
-    white-space: nowrap;
-}
-
-.badge-vegetarian {
-    color: #fff;
-    background-color: var(--ferry-green);
-}
-
-.menu-allergens {
-    font-size: 0.875rem;
-    color: #555;
-}
-
-/* Login and registration pages */
-.auth-page {
-    max-width: 520px;
-    padding-top: 3rem;
-    padding-bottom: 3rem;
-}
-
-/* Footer */
-.site-footer {
-    padding: 1rem 0;
-    color: #fff;
-    background-color: var(--ferry-green);
 }
