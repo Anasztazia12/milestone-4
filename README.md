@@ -20,6 +20,65 @@ The site is also a demo for my web design business, to show pubs, cafes and rest
 | Restaurant staff | To see orders and update their status |
 | Restaurant owner | To manage the menu and prices |
 
+## Research
+
+I looked at the websites of real pubs in Norfolk to see what works well and what could be better.
+
+### Website 1 - The Boathouse, Ormesby Broad
+
+<https://theboathouseormesbybroad.co.uk/>
+
+A country pub with a restaurant, rooms and a wedding venue.
+
+#### What's good?
+
+- Clear homepage tiles for dining, weddings and stays.
+- Contact details are easy to find.
+
+#### What's bad?
+
+- I could not find online food ordering on the homepage.
+
+#### What features could I use?
+
+- Clear sections on the homepage.
+- Simple navigation.
+
+#### What could I improve?
+
+- Let customers order and pay online.
+- Show allergens with each dish.
+
+### Website 2 - Kings Arms, Ludham
+
+<https://www.kingsarmsludham.co.uk/>
+
+A family-run pub and carvery on the Norfolk Broads.
+
+#### What's good?
+
+- A short one-page layout.
+- Clear opening and food times.
+- A phone number you can tap to call.
+
+#### What's bad?
+
+- The full menu is a PDF.
+- I could not find a way to book or order online.
+
+#### What features could I use?
+
+- Opening times and contact details that are easy to find.
+
+#### What could I improve?
+
+- Make the menu a normal web page that works well on a phone.
+- Let customers order online.
+
+### Research Outcomes
+
+Both pubs have clear websites with useful information, but I could not find online ordering on either homepage. This shows the gap The Old Ferryman can fill: customers can see the full menu on any device, order online and pay in advance.
+
 ## Feature Priorities (MoSCoW)
 
 ### Must have

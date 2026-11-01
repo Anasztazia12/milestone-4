@@ -59,7 +59,7 @@ class BagPageTests(TestCase):
     def test_zero_quantity_is_not_added(self):
         response = self.client.post(
             reverse('bag:add_to_bag', args=[self.dish.pk]),
-            {'quantity': 1},
+            {'quantity': 0},
         )
 
         self.assertEqual(self.client.session.get('bag', {}), {str(self.dish.pk): 1})
