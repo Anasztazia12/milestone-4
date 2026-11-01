@@ -73,6 +73,7 @@ I used Claude (Anthropic) to help plan this project and to draft the text of thi
 
 - [Bootstrap 5.3.3](https://getbootstrap.com/) for layout and the navigation menu
 - [django-allauth](https://allauth.org/) for registration and login
+- [IM Fell English](https://fonts.google.com/specimen/IM+Fell+English) from Google Fonts for the pub name
 
 ### Design images
 
