@@ -94,6 +94,12 @@ main {
     text-align: center;
 }
 
+.about-image {
+    width: 200px;
+    max-width: 100%;
+    margin-bottom: 1rem;
+}
+
 /* Login and registration pages */
 .auth-page {
     max-width: 520px;
