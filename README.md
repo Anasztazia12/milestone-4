@@ -67,7 +67,7 @@ Tablet wireframes are still to be added.
 
 ### AI assistance
 
-I used Claude (Anthropic) to help plan this project and to draft the text of this README, and to write the starter code for the home app.
+I used Claude (Anthropic) to help plan this project and to draft the text of this README, and to write the starter code for the home app and the environment variable settings.
 
 ### Design images
 
