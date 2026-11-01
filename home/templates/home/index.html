@@ -8,7 +8,73 @@
         <div class="container">
             <h1>Proper pub food, ready when you are</h1>
             <p class="lead">Order online, pay in advance and collect at a time that suits you.</p>
+            <a href="#favourites" class="btn btn-ferry btn-lg">See our favourites</a>
+            {% if not user.is_authenticated %}
+            <a href="{% url 'account_signup' %}" class="btn btn-outline-light btn-lg">Create an account</a>
+            {% endif %}
         </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="how-it-works">
+    <div class="container">
+        <h2 id="how-it-works" class="text-center">How it works</h2>
+        <div class="row text-center g-4">
+            <div class="col-md-4">
+                <h3 class="h5">1. Choose your food</h3>
+                <p>Browse the menu and check the allergens before you order.</p>
+            </div>
+            <div class="col-md-4">
+                <h3 class="h5">2. Pick a time</h3>
+                <p>Choose when you want to collect and pay securely by card.</p>
+            </div>
+            <div class="col-md-4">
+                <h3 class="h5">3. Collect and enjoy</h3>
+                <p>Follow your order status, then pick it up from the bar.</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section id="favourites" class="section section-light" aria-labelledby="favourites-title">
+    <div class="container">
+        <h2 id="favourites-title" class="text-center">Pub favourites</h2>
+        <div class="row g-4">
+            <div class="col-md-4">
+                <article class="card h-100">
+                    <img src="{% static 'images/fish-and-chips.jpg' %}" class="card-img-top dish-image" alt="Battered fish with chips">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Fish and Chips</h3>
+                        <p class="card-text">Crispy battered cod with chunky chips.</p>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4">
+                <article class="card h-100">
+                    <img src="{% static 'images/shepherds-pie.jpg' %}" class="card-img-top dish-image" alt="Shepherd's pie topped with mashed potato">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Shepherd's Pie</h3>
+                        <p class="card-text">Slow-cooked lamb under golden mashed potato.</p>
+                    </div>
+                </article>
+            </div>
+            <div class="col-md-4">
+                <article class="card h-100">
+                    <img src="{% static 'images/beef-stew-and-fries.jpg' %}" class="card-img-top dish-image" alt="Beef stew served with chips">
+                    <div class="card-body">
+                        <h3 class="h5 card-title">Beef Stew and Chips</h3>
+                        <p class="card-text">Rich beef stew with rosemary and crispy chips.</p>
+                    </div>
+                </article>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section" aria-labelledby="about-title">
+    <div class="container about">
+        <h2 id="about-title">A proper local</h2>
+        <p>The Old Ferryman serves honest pub classics, vegetarian dishes and a menu for little ones. No phone queues and no waiting at the bar. Just good food, ready when you arrive.</p>
     </div>
 </section>
 {% endblock %}

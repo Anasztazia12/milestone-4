@@ -57,6 +57,50 @@ main {
     background-color: rgba(0, 0, 0, 0.55);
 }
 
+/* Buttons */
+.btn-ferry {
+    color: #fff;
+    background-color: var(--ferry-green);
+    border-color: var(--ferry-green);
+}
+
+.btn-ferry:hover,
+.btn-ferry:focus {
+    color: #fff;
+    background-color: #223720;
+    border-color: #223720;
+}
+
+/* Homepage sections */
+.section {
+    padding: 3rem 0;
+}
+
+.section h2 {
+    margin-bottom: 1.5rem;
+}
+
+.section-light {
+    background-color: #fff;
+}
+
+.dish-image {
+    height: 220px;
+    object-fit: cover;
+}
+
+.about {
+    max-width: 700px;
+    text-align: center;
+}
+
+/* Login and registration pages */
+.auth-page {
+    max-width: 520px;
+    padding-top: 3rem;
+    padding-bottom: 3rem;
+}
+
 /* Footer */
 .site-footer {
     padding: 1rem 0;
