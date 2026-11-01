@@ -100,6 +100,47 @@ main {
     margin-bottom: 1rem;
 }
 
+/* Menu page */
+.menu-nav {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-bottom: 2rem;
+}
+
+.btn-outline-ferry {
+    color: var(--ferry-green);
+    border-color: var(--ferry-green);
+}
+
+.btn-outline-ferry:hover,
+.btn-outline-ferry:focus {
+    color: #fff;
+    background-color: var(--ferry-green);
+}
+
+.menu-category {
+    margin-bottom: 3rem;
+    scroll-margin-top: 1rem;
+}
+
+.menu-price {
+    margin: 0;
+    font-weight: 700;
+    white-space: nowrap;
+}
+
+.badge-vegetarian {
+    color: #fff;
+    background-color: var(--ferry-green);
+}
+
+.menu-allergens {
+    font-size: 0.875rem;
+    color: #555;
+}
+
 /* Login and registration pages */
 .auth-page {
     max-width: 520px;

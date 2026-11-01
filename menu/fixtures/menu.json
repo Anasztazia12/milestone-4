@@ -1,0 +1,682 @@
+[
+  {
+    "model": "menu.category",
+    "pk": 1,
+    "fields": {
+      "name": "Starters",
+      "position": 1
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 2,
+    "fields": {
+      "name": "Burgers",
+      "position": 2
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 3,
+    "fields": {
+      "name": "Mains",
+      "position": 3
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 4,
+    "fields": {
+      "name": "Pizza",
+      "position": 4
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 5,
+    "fields": {
+      "name": "Sides",
+      "position": 5
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 6,
+    "fields": {
+      "name": "Kids Menu",
+      "position": 6
+    }
+  },
+  {
+    "model": "menu.category",
+    "pk": 7,
+    "fields": {
+      "name": "Desserts",
+      "position": 7
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 1,
+    "fields": {
+      "name": "Celery"
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 2,
+    "fields": {
+      "name": "Cereals containing gluten"
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 3,
+    "fields": {
+      "name": "Crustaceans"
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 4,
+    "fields": {
+      "name": "Eggs"
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 5,
+    "fields": {
+      "name": "Fish"
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 6,
+    "fields": {
+      "name": "Lupin"
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 7,
+    "fields": {
+      "name": "Milk"
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 8,
+    "fields": {
+      "name": "Molluscs"
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 9,
+    "fields": {
+      "name": "Mustard"
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 10,
+    "fields": {
+      "name": "Peanuts"
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 11,
+    "fields": {
+      "name": "Sesame"
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 12,
+    "fields": {
+      "name": "Soya"
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 13,
+    "fields": {
+      "name": "Sulphur dioxide"
+    }
+  },
+  {
+    "model": "menu.allergen",
+    "pk": 14,
+    "fields": {
+      "name": "Tree nuts"
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 1,
+    "fields": {
+      "category": 1,
+      "name": "Tomato Soup with Toast",
+      "description": "Smooth tomato soup with herb oil and toasted sourdough.",
+      "price": "6.50",
+      "image": "images/tomato-soup.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": [
+        2,
+        1
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 2,
+    "fields": {
+      "category": 1,
+      "name": "Carrot Soup with Toast",
+      "description": "Creamy carrot and ginger soup with toasted sourdough.",
+      "price": "6.50",
+      "image": "images/carrot-soup.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": [
+        2,
+        7,
+        1
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 3,
+    "fields": {
+      "category": 1,
+      "name": "Pumpkin Soup with Toast",
+      "description": "Velvety roasted pumpkin soup with toasted sourdough.",
+      "price": "6.95",
+      "image": "images/pumpkin-soup.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": [
+        2,
+        7,
+        1
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 4,
+    "fields": {
+      "category": 2,
+      "name": "Double Beef Burger",
+      "description": "Two beef patties, cheese, lettuce and tomato in a toasted bun.",
+      "price": "14.50",
+      "image": "images/burger.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        7,
+        9,
+        11
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 5,
+    "fields": {
+      "category": 2,
+      "name": "Crispy Chicken Burger",
+      "description": "Buttermilk chicken with crunchy slaw in a brioche bun.",
+      "price": "13.50",
+      "image": "images/chicken-burger.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        7,
+        9
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 6,
+    "fields": {
+      "category": 2,
+      "name": "Crispy Fish Burger",
+      "description": "Golden fish fillet with cheese, lettuce and tomato, served with chips.",
+      "price": "13.95",
+      "image": "images/fish-burger.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        5,
+        7
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 7,
+    "fields": {
+      "category": 2,
+      "name": "Vegetarian Burger",
+      "description": "Crispy vegetable patty with red cabbage slaw, served with chips.",
+      "price": "12.95",
+      "image": "images/vegetarian-burger.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        7,
+        9
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 8,
+    "fields": {
+      "category": 3,
+      "name": "Fish and Chips",
+      "description": "Crispy battered cod with chunky chips.",
+      "price": "15.50",
+      "image": "images/fish-and-chips.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        5
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 9,
+    "fields": {
+      "category": 3,
+      "name": "Shepherd's Pie",
+      "description": "Slow-cooked lamb under golden mashed potato.",
+      "price": "14.95",
+      "image": "images/shepherds-pie.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        7,
+        1
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 10,
+    "fields": {
+      "category": 3,
+      "name": "Steak Pie",
+      "description": "Tender beef in rich gravy under a golden pastry crust.",
+      "price": "15.25",
+      "image": "images/meat-pie.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        7,
+        1
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 11,
+    "fields": {
+      "category": 3,
+      "name": "Beef Stew and Chips",
+      "description": "Rich beef stew with rosemary and crispy chips.",
+      "price": "15.95",
+      "image": "images/beef-stew-and-fries.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        1,
+        2
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 12,
+    "fields": {
+      "category": 3,
+      "name": "Roast Duck with Dumplings",
+      "description": "Slow-roasted duck with potato dumplings and red cabbage.",
+      "price": "18.95",
+      "image": "images/roast-duck.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        1
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 13,
+    "fields": {
+      "category": 3,
+      "name": "Beef Steak",
+      "description": "Grilled sirloin steak with seasonal vegetables.",
+      "price": "22.50",
+      "image": "images/beef-steak.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        7
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 14,
+    "fields": {
+      "category": 3,
+      "name": "Pan-Fried Salmon",
+      "description": "Salmon fillet with seasonal greens and lemon.",
+      "price": "17.95",
+      "image": "images/salmon.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        5,
+        7
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 15,
+    "fields": {
+      "category": 3,
+      "name": "Salmon Teriyaki",
+      "description": "Glazed salmon with a sweet soy teriyaki sauce.",
+      "price": "17.95",
+      "image": "images/salmon-teriyaki.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        5,
+        12,
+        11,
+        2
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 16,
+    "fields": {
+      "category": 3,
+      "name": "Pistachio Pasta",
+      "description": "Green pasta tossed with crushed pistachios.",
+      "price": "14.50",
+      "image": "images/vegetarian-pasta.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        7,
+        14
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 17,
+    "fields": {
+      "category": 3,
+      "name": "Crispy Tofu Noodles",
+      "description": "Rice noodles with crispy tofu, coriander, sesame and red pepper.",
+      "price": "13.95",
+      "image": "images/tofu-noodles.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": [
+        12,
+        11
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 18,
+    "fields": {
+      "category": 3,
+      "name": "Broccoli and Potato Bake",
+      "description": "Baked broccoli and potato with melted cheese and basil.",
+      "price": "13.50",
+      "image": "images/broccoli-potato-bake.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": [
+        7
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 19,
+    "fields": {
+      "category": 4,
+      "name": "Margherita Pizza",
+      "description": "Tomato, mozzarella and fresh basil.",
+      "price": "11.95",
+      "image": "images/pizza.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": [
+        2,
+        7
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 20,
+    "fields": {
+      "category": 4,
+      "name": "Pizza and Side Salad",
+      "description": "Stone-baked pizza served with a fresh side salad.",
+      "price": "13.95",
+      "image": "images/pizza-salad.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        2,
+        7
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 21,
+    "fields": {
+      "category": 5,
+      "name": "Chunky Chips",
+      "description": "Double-cooked chips with sea salt.",
+      "price": "4.50",
+      "image": "images/fries.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": []
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 22,
+    "fields": {
+      "category": 6,
+      "name": "Chicken Nuggets (6 piece)",
+      "description": "Six chicken nuggets with chips and two dips.",
+      "price": "7.50",
+      "image": "images/chicken-nuggets-6.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        7
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 23,
+    "fields": {
+      "category": 6,
+      "name": "Chicken Nuggets (10 piece)",
+      "description": "Ten chicken nuggets with fries and salad.",
+      "price": "9.95",
+      "image": "images/chicken-nuggets-10.jpg",
+      "is_vegetarian": false,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        7
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 24,
+    "fields": {
+      "category": 6,
+      "name": "Homemade Baby Puree",
+      "description": "Banana, apple and beetroot puree with no added salt or sugar.",
+      "price": "3.50",
+      "image": "images/baby-puree.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": []
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 25,
+    "fields": {
+      "category": 6,
+      "name": "Homemade Fruit Puree",
+      "description": "Smooth mixed fruit puree with no added salt or sugar.",
+      "price": "3.50",
+      "image": "images/fruit-puree.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": []
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 26,
+    "fields": {
+      "category": 7,
+      "name": "Blueberry Cheesecake",
+      "description": "Baked cheesecake topped with blueberries.",
+      "price": "6.95",
+      "image": "images/blueberry-cheesecake.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        7
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 27,
+    "fields": {
+      "category": 7,
+      "name": "Classic Cheesecake",
+      "description": "Creamy vanilla cheesecake on a biscuit base.",
+      "price": "6.50",
+      "image": "images/cheesecake.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        7
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 28,
+    "fields": {
+      "category": 7,
+      "name": "Chocolate Cake",
+      "description": "Rich chocolate cake with a dark chocolate glaze.",
+      "price": "6.95",
+      "image": "images/chocolate-cake.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        7,
+        12
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 29,
+    "fields": {
+      "category": 7,
+      "name": "Chocolate Dessert Bars",
+      "description": "Layered chocolate bars, cut into squares.",
+      "price": "5.95",
+      "image": "images/chocolate-dessert-bars.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": [
+        2,
+        4,
+        7,
+        12
+      ]
+    }
+  },
+  {
+    "model": "menu.menuitem",
+    "pk": 30,
+    "fields": {
+      "category": 7,
+      "name": "Creme Caramel",
+      "description": "Silky baked custard with caramel sauce.",
+      "price": "5.95",
+      "image": "images/creme-caramel.jpg",
+      "is_vegetarian": true,
+      "is_available": true,
+      "allergens": [
+        4,
+        7
+      ]
+    }
+  }
+]

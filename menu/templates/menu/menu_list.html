@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block title %}Menu | The Old Ferryman{% endblock %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1 class="text-center">Our Menu</h1>
+        <p class="lead text-center">Freshly cooked pub food, ready to collect.</p>
+
+        <nav class="menu-nav" aria-label="Menu categories">
+            {% for category in categories %}
+                {% if category.available_items %}
+                <a href="#category-{{ category.pk }}" class="btn btn-outline-ferry">{{ category.name }}</a>
+                {% endif %}
+            {% endfor %}
+        </nav>
+
+        {% for category in categories %}
+            {% if category.available_items %}
+            <section id="category-{{ category.pk }}" class="menu-category" aria-labelledby="category-title-{{ category.pk }}">
+                <h2 id="category-title-{{ category.pk }}">{{ category.name }}</h2>
+                <div class="row g-4">
+                    {% for item in category.available_items %}
+                    <div class="col-sm-6 col-lg-4">
+                        <article class="card h-100">
+                            <img src="{% static item.image %}" class="card-img-top dish-image" alt="{{ item.name }}" loading="lazy">
+                            <div class="card-body d-flex flex-column">
+                                <div class="d-flex justify-content-between gap-2">
+                                    <h3 class="h5 card-title">{{ item.name }}</h3>
+                                    <p class="menu-price">£{{ item.price }}</p>
+                                </div>
+                                <p class="card-text">{{ item.description }}</p>
+                                {% if item.is_vegetarian %}
+                                <p><span class="badge badge-vegetarian">Vegetarian</span></p>
+                                {% endif %}
+                                {% with item.allergens.all as allergens %}
+                                {% if allergens %}
+                                <p class="menu-allergens mt-auto mb-0">Contains: {% for allergen in allergens %}{{ allergen.name }}{% if not forloop.last %}, {% endif %}{% endfor %}</p>
+                                {% endif %}
+                                {% endwith %}
+                            </div>
+                        </article>
+                    </div>
+                    {% endfor %}
+                </div>
+            </section>
+            {% endif %}
+        {% endfor %}
+    </div>
+</section>
+{% endblock %}
