@@ -89,3 +89,14 @@ class MenuPageTests(TestCase):
     def test_main_navigation_links_to_menu(self):
         response = self.client.get(reverse('home'))
         self.assertContains(response, reverse('menu'))
+
+    def test_menu_sorts_by_price_low_to_high(self):
+        response = self.client.get(reverse('menu') + '?sort=price&direction=asc')
+
+        for category in response.context['categories']:
+            prices = [item.price for item in category.available_items]
+            self.assertEqual(prices, sorted(prices))
+
+    def test_unknown_sort_does_not_break_menu(self):
+        response = self.client.get(reverse('menu') + '?sort=wrong')
+        self.assertEqual(response.status_code, 200)

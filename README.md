@@ -2,6 +2,20 @@
 
 The Old Ferryman is a made-up gastropub in Norfolk, England. This project is its website, where customers can order pub food online, pay in advance and collect it at a time that suits them.
 
+## Table of Contents
+
+- [Purpose](#purpose)
+- [Strategy](#strategy)
+- [Project Goals](#project-goals)
+- [Target Audience](#target-audience)
+- [Research](#research)
+- [User Stories](#user-stories)
+- [Scope](#scope)
+- [Feature Priorities (MoSCoW)](#feature-priorities-moscow)
+- [Structure](#structure)
+- [Wireframes and Mockups](#wireframes-and-mockups)
+- [Credits](#credits)
+
 ## Purpose
 
 Ordering takeaway by phone is slow. Customers can wait on hold, they cannot see the full menu, and they do not know when their food will be ready. Staff have to stop working to answer the phone, and it is easy to get an order wrong.
@@ -9,6 +23,29 @@ Ordering takeaway by phone is slow. Customers can wait on hold, they cannot see 
 The Old Ferryman solves this by putting the whole process online. Customers choose their food, pick a collection time, pay by card and then follow the status of their order. Staff can see all orders in one place and update them as they go.
 
 The site is also a demo for my web design business, to show pubs, cafes and restaurants what an ordering system could look like for them.
+
+## Strategy
+
+The main users are customers who want to order pub food for collection, and the staff who prepare those orders. The site focuses on one clear job: getting from the menu to a paid order in a few simple steps.
+
+Customers can look at the menu without an account, so they can decide before signing up. They need an account to order, because it lets them follow their order and see it again later. Staff use their own page to see new orders and update their status.
+
+The project is built for a pub, but the same idea could work for a cafe, a restaurant or any other food business that offers collection.
+
+## Project Goals
+
+### Customer goals
+
+- Find the menu, prices and allergens quickly.
+- Order and pay online without phoning the pub.
+- Know when the food is ready to collect.
+
+### Business goals
+
+- Take orders without staff having to answer the phone.
+- Make fewer mistakes with orders.
+- Keep all orders in one place.
+- Show other local businesses what an ordering system could do for them.
 
 ## Target Audience
 
@@ -30,21 +67,21 @@ I looked at the websites of real pubs in Norfolk to see what works well and what
 
 A country pub with a restaurant, rooms and a wedding venue.
 
-#### What's good?
+#### The Boathouse: what's good?
 
 - Clear homepage tiles for dining, weddings and stays.
 - Contact details are easy to find.
 
-#### What's bad?
+#### The Boathouse: what's bad?
 
 - I could not find online food ordering on the homepage.
 
-#### What features could I use?
+#### The Boathouse: what features could I use?
 
 - Clear sections on the homepage.
 - Simple navigation.
 
-#### What could I improve?
+#### The Boathouse: what could I improve?
 
 - Let customers order and pay online.
 - Show allergens with each dish.
@@ -55,22 +92,22 @@ A country pub with a restaurant, rooms and a wedding venue.
 
 A family-run pub and carvery on the Norfolk Broads.
 
-#### What's good?
+#### Kings Arms: what's good?
 
 - A short one-page layout.
 - Clear opening and food times.
 - A phone number you can tap to call.
 
-#### What's bad?
+#### Kings Arms: what's bad?
 
 - The full menu is a PDF.
 - I could not find a way to book or order online.
 
-#### What features could I use?
+#### Kings Arms: what features could I use?
 
 - Opening times and contact details that are easy to find.
 
-#### What could I improve?
+#### Kings Arms: what could I improve?
 
 - Make the menu a normal web page that works well on a phone.
 - Let customers order online.
@@ -78,6 +115,94 @@ A family-run pub and carvery on the Norfolk Broads.
 ### Research Outcomes
 
 Both pubs have clear websites with useful information, but I could not find online ordering on either homepage. This shows the gap The Old Ferryman can fill: customers can see the full menu on any device, order online and pay in advance.
+
+## User Stories
+
+### Must-have stories
+
+"As a new visitor, I want to see the menu and prices, so I can decide what to order."
+
+Feature: A menu page with food categories and prices.
+
+"As a customer with allergies, I want to check the allergens in a dish, so I can order safely."
+
+Feature: A food detail page with a description and allergens.
+
+"As a customer, I want to create an account and log in, so I can follow my order."
+
+Feature: Register, log in and log out.
+
+"As a customer, I want to add, change and remove items in my bag, so I can get my order right before I pay."
+
+Feature: A shopping bag.
+
+"As a customer, I want to pay online, so I do not need to pay when I collect my food."
+
+Feature: Stripe checkout in test mode.
+
+"As a customer, I want to know if my payment worked, so I am sure my order was placed."
+
+Feature: Clear messages for successful and failed payments.
+
+"As a customer, I want to follow my order after paying, so I know when my food is ready."
+
+Feature: An order tracking page that is available after payment.
+
+"As a customer, I want to write, edit and delete my reviews, so I can share my opinion and change it later."
+
+Feature: Reviews that customers can create, edit and delete.
+
+"As a member of staff, I want to see orders and update their status, so customers know how their order is going."
+
+Feature: A staff page to see orders and update their status.
+
+### Should-have stories
+
+"As a customer with allergies, I want to search and filter the menu, so I can find suitable dishes quickly."
+
+Feature: Search and filter by category or allergen.
+
+"As a customer, I want to choose a collection time, so I can pick up my food when it suits me."
+
+Feature: A choice of collection time at checkout.
+
+"As a returning customer, I want to see my past orders, so I can remember what I ordered."
+
+Feature: Order history in the user profile.
+
+"As a returning customer, I want my contact details to be saved, so I can check out faster."
+
+Feature: Saved contact details for faster checkout.
+
+### Could-have stories
+
+"As a customer, I want the order status to update by itself, so I do not need to refresh the page."
+
+Feature: Live order status without refreshing the page.
+
+"As a new visitor, I want to see the average rating of a dish, so I can choose something popular."
+
+Feature: An average star rating on each food item.
+
+"As a customer, I want an email after ordering, so I have a record of my order."
+
+Feature: Order confirmation emails.
+
+## Scope
+
+### MVP (minimum viable product)
+
+The MVP is the smallest version of the site that still works. A customer must be able to choose food, pay and follow their order.
+
+I put each user story into one of three groups:
+
+- **Must-have:** the site does not work without these, so I build them first.
+- **Should-have:** these make ordering easier, but the site works without them.
+- **Could-have:** nice extras. I add these if I have time.
+
+### Responsive design
+
+The site must work on phones, tablets and desktops. This is not a separate user story because it applies to every page.
 
 ## Feature Priorities (MoSCoW)
 
@@ -112,6 +237,29 @@ Both pubs have clear websites with useful information, but I could not find onli
 - Table booking
 - Loyalty points
 - A mobile app
+
+## Structure
+
+### Site structure
+
+- **Navigation bar:** Home and Menu, plus Log in and Register for visitors or Log out for signed-in users.
+- **Homepage:** a hero with an Order now button, How it works, Pub favourites and an introduction to the pub.
+- **Menu:** food and drink sorted into categories, with prices and allergens.
+- **Bag:** the items a customer has chosen and the total price.
+- **Checkout:** payment by card, added with the Stripe feature.
+- **Order tracking:** the status of a paid order, added after checkout.
+- **Staff orders:** a page for staff to see and update orders, added after order tracking.
+
+### User journey
+
+1. A visitor opens the homepage and sees what the pub offers.
+2. They choose Order now and look through the menu.
+3. They add dishes to their bag and check the total.
+4. They log in or register, then pay by card.
+5. They see a message that says whether the payment worked.
+6. They follow their order until it is ready to collect.
+
+Staff see the new order on their own page and update its status, and the customer can see each change.
 
 ## Wireframes and Mockups
 
