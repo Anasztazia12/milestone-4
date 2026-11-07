@@ -32,5 +32,15 @@ def menu_list(request):
                     sortkey = f'-{sortkey}'
 
             available_items = available_items.order_by(sortkey)
+            
+    current_sorting = f'{sort}_{direction}'
+
+    categories = Category.objects.prefetch_related(
+        Prefetch('items', queryset=available_items, to_attr='available_items')
+    )
+    return render(request, 'menu/menu_list.html', {
+        'categories': categories,
+        'current_sorting': current_sorting,
+    })
 
    

@@ -62,4 +62,4 @@ class BagPageTests(TestCase):
             {'quantity': 0},
         )
 
-        self.assertEqual(self.client.session.get('bag', {}), {str(self.dish.pk): 1})
+        self.assertEqual(self.client.session.get('bag', {}), {})

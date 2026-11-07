@@ -14,6 +14,7 @@ The Old Ferryman is a made-up gastropub in Norfolk, England. This project is its
 - [Feature Priorities (MoSCoW)](#feature-priorities-moscow)
 - [Structure](#structure)
 - [Wireframes and Mockups](#wireframes-and-mockups)
+- [Bugs](#bugs)
 - [Credits](#credits)
 
 ## Purpose
@@ -269,6 +270,46 @@ These boards show the planned pages. They were made before coding, using the pla
 - [Mobile wireframes and mockups](docs/wireframes/mobile-wireframes-and-mockups.png)
 
 Tablet wireframes are still to be added.
+
+## Bugs
+
+I wrote down each bug when it happened, what caused it and how I fixed it.
+
+### 1. Menu code pasted into the wrong file
+
+**Bug:** after adding sorting to the menu, the whole site stopped working and the tests would not run. The error said:
+
+```text
+File "bag/views.py", line 5
+ImportError: cannot import name 'Category' from 'bag.models'
+```
+
+![Test error after pasting into the wrong file](assets/images/test/bag-views-import-error.png)
+
+**Cause:** I pasted the new sorting code into `bag/views.py` instead of `menu/views.py`. This replaced the bag code, and I committed it before noticing. The error message helped, because it named the file and the line.
+
+**Fix:** `git restore bag/views.py` did not help, because it brought back the broken version from my last commit. I used `git restore --source=HEAD~1 bag/views.py` to get the bag code from the commit before, and moved the sorting code to `menu/views.py`.
+
+**What I learned:** run the tests and check `git status` before every commit.
+
+### 2. Typos in the menu sorting code
+
+**Bug:** after moving the sorting code, four menu tests failed.
+
+**Cause:** two small mistakes in `menu/views.py`:
+
+- I used round brackets in `f'(sort)_(direction)'`, so it saved the text "(sort)" instead of the real values.
+- I left out `to_attr='available_items'` in `Prefetch`, so the template could not find the dishes.
+
+**Fix:** I changed the first line to `f'{sort}_{direction}'` and added `to_attr='available_items'` back. All the menu tests passed after that.
+
+### 3. Zero quantity test expected the wrong result
+
+**Bug:** the test `test_zero_quantity_is_not_added` failed, even though the bag worked correctly.
+
+**Cause:** the test sends a quantity of 0, but its last line still expected 1 portion in the bag. The bag code was right, because it stays empty. The test itself was wrong.
+
+**Fix:** I changed the last line so it expects an empty bag: `{}`. All 27 tests now pass.
 
 ## Credits
 
