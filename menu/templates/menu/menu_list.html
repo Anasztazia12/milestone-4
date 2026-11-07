@@ -17,6 +17,15 @@
             {% endfor %}
         </nav>
 
+        <label class="form-label" for="sort-selector">Sort the menu</label>
+        <select id="sort-selector" class="form-select w-auto mb-4">
+            <option value="reset" {% if current_sorting == 'None_None' %}selected{% endif %}>Menu order</option>
+            <option value="price_asc" {% if current_sorting == 'price_asc' %}selected{% endif %}>Price: low to high</option>
+            <option value="price_desc" {% if current_sorting == 'price_desc' %}selected{% endif %}>Price: high to low</option>
+            <option value="name_asc" {% if current_sorting == 'name_asc' %}selected{% endif %}>Name: A to Z</option>
+            <option value="name_desc" {% if current_sorting == 'name_desc' %}selected{% endif %}>Name: Z to A</option>
+        </select>
+
         {% for category in categories %}
             {% if category.available_items %}
             <section id="category-{{ category.pk }}" class="mb-5" aria-labelledby="category-title-{{ category.pk }}">
