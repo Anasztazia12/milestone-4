@@ -72,6 +72,43 @@ class BagPageTests(TestCase):
 
         self.assertEqual(self.client.session.get('bag', {}), {})
 
+    def test_adjust_bag_changes_quantity(self):
+        session = self.client.session
+        session['bag'] = {str(self.dish.pk): 3}
+        session.save()
+
+        response = self.client.post(
+            reverse('bag:adjust_bag', args=[self.dish.pk]),
+            {'quantity': 1},
+        )
+
+        self.assertRedirects(response, reverse('bag:view_bag'))
+        self.assertEqual(self.client.session['bag'], {str(self.dish.pk): 1})
+
+    def test_adjust_bag_to_zero_removes_item(self):
+        session = self.client.session
+        session['bag'] = {str(self.dish.pk): 3}
+        session.save()
+
+        self.client.post(
+            reverse('bag:adjust_bag', args=[self.dish.pk]),
+            {'quantity': 0},
+        )
+
+        self.assertEqual(self.client.session['bag'], {})
+
+    def test_remove_from_bag_removes_item(self):
+        session = self.client.session
+        session['bag'] = {str(self.dish.pk): 2}
+        session.save()
+
+        response = self.client.post(
+            reverse('bag:remove_from_bag', args=[self.dish.pk]),
+        )
+
+        self.assertRedirects(response, reverse('bag:view_bag'))
+        self.assertEqual(self.client.session['bag'], {})
+
     def test_bag_total_shows_on_every_page(self):
         session = self.client.session
         session['bag'] = {str(self.dish.pk): 2}

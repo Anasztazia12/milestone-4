@@ -50,3 +50,41 @@ def view_bag(request):
         'total': total,
     })
 
+
+@require_POST
+def adjust_bag(request, item_id):
+    """Change the quantity of an item in the bag, or remove it at zero."""
+    item = get_object_or_404(MenuItem, pk=item_id)
+    try:
+        quantity = int(request.POST.get('quantity', 0))
+    except ValueError:
+        quantity = -1
+
+    if quantity < 0 or quantity > 99:
+        messages.error(request, 'Choose a quantity between 0 and 99.')
+        return redirect('bag:view_bag')
+
+    bag = request.session.get('bag', {})
+    item_key = str(item.pk)
+
+    if quantity > 0:
+        bag[item_key] = quantity
+        messages.success(request, f'{item.name} updated to {quantity}.')
+    else:
+        bag.pop(item_key, None)
+        messages.success(request, f'{item.name} removed from your bag.')
+
+    request.session['bag'] = bag
+    return redirect('bag:view_bag')
+
+
+@require_POST
+def remove_from_bag(request, item_id):
+    """Remove an item from the bag completely."""
+    item = get_object_or_404(MenuItem, pk=item_id)
+    bag = request.session.get('bag', {})
+    bag.pop(str(item.pk), None)
+    request.session['bag'] = bag
+    messages.success(request, f'{item.name} removed from your bag.')
+    return redirect('bag:view_bag')
+
