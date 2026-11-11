@@ -81,10 +81,18 @@
                 </div>
             </article>
             <article class="favourite-card card">
-                <img src="{% static 'images/baby-puree.jpg' %}" class="favourite-image card-img-top" alt="Fruit and vegetable puree in a bowl">
+                <img src="{% static 'images/meat-pie.jpg' %}" class="favourite-image card-img-top" alt="Steak pie cut open to show beef in gravy">
                 <div class="card-body text-center">
-                    <h3 class="h5 card-title">Homemade Baby Puree</h3>
-                    <p class="card-text">Banana, apple and beetroot with no added salt or sugar.</p>
+                    <h3 class="h5 card-title">Steak Pie</h3>
+                    <p class="card-text">Tender beef in rich gravy under a golden pastry crust.</p>
+                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm">Order now</a>
+                </div>
+            </article>
+            <article class="favourite-card card">
+                <img src="{% static 'images/beef-steak.jpg' %}" class="favourite-image card-img-top" alt="Grilled steak with roast potatoes">
+                <div class="card-body text-center">
+                    <h3 class="h5 card-title">Beef Steak</h3>
+                    <p class="card-text">Grilled sirloin steak with seasonal vegetables.</p>
                     <a href="{% url 'menu' %}" class="btn btn-success btn-sm">Order now</a>
                 </div>
             </article>

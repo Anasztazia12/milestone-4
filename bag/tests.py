@@ -63,3 +63,13 @@ class BagPageTests(TestCase):
         )
 
         self.assertEqual(self.client.session.get('bag', {}), {})
+
+    def test_bag_total_shows_on_every_page(self):
+        session = self.client.session
+        session['bag'] = {str(self.dish.pk): 2}
+        session.save()
+
+        response = self.client.get(reverse('menu'))
+
+        self.assertEqual(response.context['bag_total'], Decimal('25.00'))
+        self.assertContains(response, reverse('bag:view_bag'))

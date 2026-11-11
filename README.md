@@ -215,9 +215,9 @@ The site must work on phones, tablets and desktops. This is not a separate user 
 - Shopping bag where items can be added, changed and removed
 - Stripe checkout in test mode
 - Clear messages for successful and failed payments
-- Order tracking page that is available after payment
+- Order tracking page that is available after payment and shows the order status: Received, Preparing or Ready
 - Reviews that customers can create, edit and delete
-- Staff page to see orders and update their status
+- Staff page to see orders and move them from Received to Preparing to Ready
 
 ### Should have
 
@@ -225,9 +225,11 @@ The site must work on phones, tablets and desktops. This is not a separate user 
 - Choice of collection time at checkout
 - Order history in the user profile
 - Saved contact details for faster checkout
+- Only customers who have collected an order can write a review
 
 ### Could have
 
+- Carousel of pub favourites on the homepage, made with my own JavaScript
 - Live order status without refreshing the page
 - Average star rating on each food item
 - Order confirmation emails
