@@ -35,6 +35,14 @@ class MenuModelTests(TestCase):
         self.item.allergens.add(self.milk)
         self.assertIn(self.milk, self.item.allergens.all())
 
+    def test_ingredients_are_empty_by_default(self):
+        self.assertEqual(self.item.ingredients, '')
+
+    def test_item_can_store_ingredients(self):
+        self.item.ingredients = 'Cod, flour, potatoes'
+        self.item.full_clean()
+        self.assertEqual(self.item.ingredients, 'Cod, flour, potatoes')
+
     def test_price_cannot_be_negative(self):
         self.item.price = Decimal('-1.00')
         with self.assertRaises(ValidationError):

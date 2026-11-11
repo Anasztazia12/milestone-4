@@ -57,11 +57,10 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     function updatePauseButton() {
+        pauseButton.classList.toggle('is-paused', pausedByUser);
         if (pausedByUser) {
-            pauseButton.innerHTML = '&#9654;';
             pauseButton.setAttribute('aria-label', 'Play slideshow');
         } else {
-            pauseButton.innerHTML = '&#10074;&#10074;';
             pauseButton.setAttribute('aria-label', 'Pause slideshow');
         }
     }

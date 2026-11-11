@@ -2,6 +2,8 @@
 
 The Old Ferryman is a made-up gastropub in Norfolk, England. This project is its website, where customers can order pub food online, pay in advance and collect it at a time that suits them.
 
+![The Old Ferryman homepage on desktop, laptop, tablet and phone](docs/mockup/responsive-devices-mockup.jpg)
+
 ## Table of Contents
 
 - [Purpose](#purpose)
