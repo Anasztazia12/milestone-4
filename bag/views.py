@@ -16,8 +16,8 @@ def add_to_bag(request, item_id):
     except ValueError:
         quantity = 0
 
-    if quantity < 1:
-        messages.error(request, 'Choose a quantity of at least 1.')
+    if quantity < 1 or quantity > 99:
+        messages.error(request, 'Choose a quantity between 1 and 99.')
         return redirect('menu')
 
     bag = request.session.get('bag', {})

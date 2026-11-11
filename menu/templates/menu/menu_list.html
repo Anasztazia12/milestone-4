@@ -45,7 +45,7 @@
                                     {% csrf_token %}
                                     <div>
                                         <label class="form-label mb-1" for="quantity-{{ item.pk }}">Quantity</label>
-                                        <input class="form-control" id="quantity-{{ item.pk }}" name="quantity" type="number" min="1" value="1" required>
+                                        <input class="form-control" id="quantity-{{ item.pk }}" name="quantity" type="number" min="1" max="99" value="1" required>
                                     </div>
                                     <button class="btn btn-success" type="submit">Add to bag</button>
                                 </form>

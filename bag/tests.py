@@ -64,6 +64,14 @@ class BagPageTests(TestCase):
 
         self.assertEqual(self.client.session.get('bag', {}), {})
 
+    def test_quantity_over_99_is_not_added(self):
+        self.client.post(
+            reverse('bag:add_to_bag', args=[self.dish.pk]),
+            {'quantity': 100},
+        )
+
+        self.assertEqual(self.client.session.get('bag', {}), {})
+
     def test_bag_total_shows_on_every_page(self):
         session = self.client.session
         session['bag'] = {str(self.dish.pk): 2}
