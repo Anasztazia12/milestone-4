@@ -12,6 +12,7 @@ The Old Ferryman is a made-up gastropub in Norfolk, England. This project is its
 - [User Stories](#user-stories)
 - [Scope](#scope)
 - [Feature Priorities (MoSCoW)](#feature-priorities-moscow)
+- [Agile Planning](#agile-planning)
 - [Structure](#structure)
 - [Wireframes and Mockups](#wireframes-and-mockups)
 - [Bugs](#bugs)
@@ -218,6 +219,7 @@ The site must work on phones, tablets and desktops. This is not a separate user 
 - Order tracking page that is available after payment and shows the order status: Received, Preparing or Ready
 - Reviews that customers can create, edit and delete
 - Staff page to see orders and move them from Received to Preparing to Ready
+- Carousel of pub favourites on the homepage, made with my own JavaScript
 
 ### Should have
 
@@ -229,7 +231,6 @@ The site must work on phones, tablets and desktops. This is not a separate user 
 
 ### Could have
 
-- Carousel of pub favourites on the homepage, made with my own JavaScript
 - Live order status without refreshing the page
 - Average star rating on each food item
 - Order confirmation emails
@@ -240,6 +241,18 @@ The site must work on phones, tablets and desktops. This is not a separate user 
 - Table booking
 - Loyalty points
 - A mobile app
+
+## Agile Planning
+
+I planned the project on a [GitHub Projects board](https://github.com/users/Anasztazia12/projects/15/views/1). Each user story is a GitHub issue with a MoSCoW label (Must-have, Should-have or Could-have). The issues are cards on the board, and each card moves from Todo to In Progress to Done, so I can see what is finished and what comes next.
+
+The user stories as issues with their MoSCoW labels:
+
+![User story issues with MoSCoW labels](docs/agile/issues-moscow-labels.png)
+
+The board on 11 November 2026, with all 16 user stories in Todo:
+
+![Project board with all user stories in Todo](docs/agile/project-board-start.png)
 
 ## Structure
 
