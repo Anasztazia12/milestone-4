@@ -4,6 +4,7 @@
 :root {
     --bs-success-rgb: 47, 74, 44;
     --bs-light-rgb: 247, 243, 234;
+    --brass: #b8913a;
 }
 
 .btn-success {
@@ -49,10 +50,47 @@
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Homepage hero height */
-.hero {
-    height: 60vh;
-    min-height: 320px;
+/* Homepage hero: text on solid green, photo in an arched pub window */
+.hero-split {
+    position: relative;
+    padding: 4rem 0 6rem;
+    background-color: #2f4a2c;
+}
+
+.hero-photo {
+    display: block;
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    aspect-ratio: 4 / 5;
+    object-fit: cover;
+    border-radius: 999px 999px 0.5rem 0.5rem;
+    outline: 2px solid var(--brass);
+    outline-offset: 10px;
+}
+
+/* Wavy river edge at the bottom of the hero */
+.hero-wave {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 60px;
+    fill: #f7f3ea;
+}
+
+/* Brass button that stands out on the green hero */
+.btn-brass {
+    --bs-btn-color: #1c2a1a;
+    --bs-btn-bg: #b8913a;
+    --bs-btn-border-color: #b8913a;
+    --bs-btn-hover-color: #1c2a1a;
+    --bs-btn-hover-bg: #d0a84f;
+    --bs-btn-hover-border-color: #d0a84f;
+    --bs-btn-active-color: #1c2a1a;
+    --bs-btn-active-bg: #d0a84f;
+    --bs-btn-active-border-color: #d0a84f;
 }
 
 /* Keep all dish photos the same height */
@@ -88,4 +126,35 @@
     width: 200px;
     max-width: 100%;
     margin-bottom: 1rem;
+}
+
+/* Old print style headings to match the pub sign */
+h1,
+h2 {
+    font-family: 'IM Fell English', serif;
+    font-weight: 400;
+}
+
+/* Small brass label above the main heading */
+.eyebrow {
+    color: var(--brass);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+}
+
+/* How it works: big numbers in a brass circle */
+.step-number {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 3.5rem;
+    height: 3.5rem;
+    margin: 0 auto 1rem;
+    font-family: 'IM Fell English', serif;
+    font-size: 1.75rem;
+    color: #2f4a2c;
+    border: 2px solid var(--brass);
+    border-radius: 50%;
 }

@@ -118,3 +118,12 @@ class BagPageTests(TestCase):
 
         self.assertEqual(response.context['bag_total'], Decimal('25.00'))
         self.assertContains(response, reverse('bag:view_bag'))
+
+    def test_error_message_is_shown_in_red(self):
+        response = self.client.post(
+            reverse('bag:add_to_bag', args=[self.dish.pk]),
+            {'quantity': 0},
+            follow=True,
+        )
+
+        self.assertContains(response, 'alert-danger')

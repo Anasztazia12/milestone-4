@@ -342,6 +342,13 @@ I used ChatGPT to help with the wireframes and Claude to help with planning the 
 
 The wireframe and mockup boards in docs/wireframes were generated with ChatGPT (OpenAI).
 
+### Design inspiration
+
+I looked at these restaurant websites for ideas on layout and style. No code, images or branding were copied from them.
+
+- [Pho](https://www.phocafe.co.uk/): large bold headings, food photos in the hero, rounded buttons and gentle movement.
+- [Adachi](https://adachirestaurant.com/): headings broken into short lines, a clear grid of menu tiles and order buttons that are easy to find.
+
 ### Photos
 
 | Photo | Creator | Source | Licence |
