@@ -2,27 +2,27 @@
 
 /* Site colours: replace the Bootstrap green and light grey */
 :root {
-    --bs-success-rgb: 47, 74, 44;
+    --bs-success-rgb: 27, 77, 62;
     --bs-light-rgb: 247, 243, 234;
     --brass: #b8913a;
 }
 
 .btn-success {
-    --bs-btn-bg: #2f4a2c;
-    --bs-btn-border-color: #2f4a2c;
-    --bs-btn-hover-bg: #223720;
-    --bs-btn-hover-border-color: #223720;
-    --bs-btn-active-bg: #223720;
-    --bs-btn-active-border-color: #223720;
+    --bs-btn-bg: #1f535c;
+    --bs-btn-border-color: #1b3b4d;
+    --bs-btn-hover-bg: #0e4b46;
+    --bs-btn-hover-border-color: #0f533f;
+    --bs-btn-active-bg: #0b3d2e;
+    --bs-btn-active-border-color: #073024;
 }
 
 .btn-outline-success {
-    --bs-btn-color: #2f4a2c;
-    --bs-btn-border-color: #2f4a2c;
-    --bs-btn-hover-bg: #2f4a2c;
-    --bs-btn-hover-border-color: #2f4a2c;
-    --bs-btn-active-bg: #2f4a2c;
-    --bs-btn-active-border-color: #2f4a2c;
+    --bs-btn-color: #1b4d3e;
+    --bs-btn-border-color: #1b4d3e;
+    --bs-btn-hover-bg: #1b4d3e;
+    --bs-btn-hover-border-color: #1b4d3e;
+    --bs-btn-active-bg: #1b4d3e;
+    --bs-btn-active-border-color: #1b4d3e;
 }
 
 /* Main navigation links */
@@ -50,34 +50,118 @@
     background-color: rgba(255, 255, 255, 0.2);
 }
 
-/* Homepage hero: text on solid green, photo in an arched pub window */
-.hero-split {
+/* Homepage hero: a rounded poster card inside a green frame */
+.hero-frame {
+    padding: 0 1rem 1rem;
+    background-color: #1b4d3e;
+}
+
+.hero-card {
     position: relative;
-    padding: 4rem 0 6rem;
-    background-color: #2f4a2c;
+    display: flex;
+    align-items: center;
+    min-height: 75vh;
+    padding: 3rem 0;
+    overflow: hidden;
+    background-color: #133a2e;
+    border-radius: 1.5rem;
 }
 
-.hero-photo {
-    display: block;
-    width: 100%;
-    max-width: 420px;
-    margin: 0 auto;
-    aspect-ratio: 4 / 5;
-    object-fit: cover;
-    border-radius: 999px 999px 0.5rem 0.5rem;
-    outline: 2px solid var(--brass);
-    outline-offset: 10px;
-}
-
-/* Wavy river edge at the bottom of the hero */
-.hero-wave {
+/* Shade over the photo so the text is easy to read on small screens */
+.hero-card::before {
     position: absolute;
-    bottom: 0;
-    left: 0;
-    display: block;
+    inset: 0;
+    z-index: 1;
+    content: "";
+    background: rgba(10, 31, 25, 0.6);
+}
+
+.hero-bg {
+    position: absolute;
+    inset: 0;
     width: 100%;
-    height: 60px;
-    fill: #f7f3ea;
+    height: 100%;
+    object-fit: cover;
+    animation: hero-zoom 20s ease-out forwards;
+}
+
+/* Large screens: text on solid green, photo bright on the right */
+@media (min-width: 992px) {
+    .hero-bg {
+        left: auto;
+        width: 55%;
+    }
+
+    .hero-card::before {
+        background: linear-gradient(90deg, #133a2e 45%, rgba(19, 58, 46, 0) 62%);
+    }
+}
+
+.hero-content {
+    position: relative;
+    z-index: 2;
+    animation: hero-rise 0.8s ease-out;
+}
+
+/* Very large heading broken into short lines, like a pub poster */
+.hero-title {
+    margin-bottom: 1.5rem;
+    font-size: clamp(3.5rem, 10vw, 7.5rem);
+    line-height: 0.9;
+    text-transform: uppercase;
+}
+
+.hero-title-small {
+    margin-top: 0.75rem;
+    font-size: clamp(1.5rem, 3.5vw, 2.5rem);
+    line-height: 1.1;
+    text-transform: none;
+    color: var(--brass);
+}
+
+/* Five brass stars under the hero buttons */
+.hero-rating {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 600;
+}
+
+.hero-stars {
+    font-size: 1.5rem;
+    letter-spacing: 0.15em;
+    color: var(--brass);
+}
+
+/* Slow zoom on the photo and the text rising into place */
+@keyframes hero-zoom {
+    from {
+        transform: scale(1);
+    }
+
+    to {
+        transform: scale(1.08);
+    }
+}
+
+@keyframes hero-rise {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* No movement for people who turn off animations on their device */
+@media (prefers-reduced-motion: reduce) {
+    .hero-bg,
+    .hero-content {
+        animation: none;
+    }
 }
 
 /* Brass button that stands out on the green hero */
@@ -98,27 +182,73 @@
     height: 220px;
 }
 
-/* Pub favourites slider */
+/* Pub favourites: green band with white dish cards */
+.favourites-section {
+    background-color: #1b4d3e;
+}
+
 .favourites-track {
     position: relative;
     display: flex;
-    gap: 1rem;
-    padding: 0.5rem 0;
+    gap: 1.5rem;
+    padding: 1rem 0 1.5rem;
     overflow-x: auto;
     scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+}
+
+/* Hide the scrollbar, the arrow buttons move the slider instead */
+.favourites-track::-webkit-scrollbar {
+    display: none;
 }
 
 .favourite-card {
-    flex: 0 0 min(80%, 440px);
+    flex: 0 0 min(80%, 400px);
+    overflow: hidden;
+    border: 0;
+    border-radius: 1.25rem;
+    box-shadow: 0 0.75rem 1.5rem rgba(0, 0, 0, 0.25);
     scroll-snap-align: center;
+    transition: transform 0.2s;
 }
 
-/* Show the whole photo without cropping */
+.favourite-card:hover {
+    transform: translateY(-4px);
+}
+
+.favourite-card .card-title {
+    font-family: 'IM Fell English', serif;
+    font-size: 1.5rem;
+}
+
+/* Photo fills the top of the card with no white bars */
 .favourite-image {
     height: auto;
     aspect-ratio: 4 / 3;
-    object-fit: contain;
-    background-color: #fff;
+    object-fit: cover;
+}
+
+/* Round brass arrow buttons under the slider */
+.favourites-arrow {
+    width: 3rem;
+    height: 3rem;
+    font-size: 1.25rem;
+    color: var(--brass);
+    border: 2px solid var(--brass);
+    border-radius: 50%;
+}
+
+.favourites-arrow:hover,
+.favourites-arrow:focus {
+    color: #1c2a1a;
+    background-color: var(--brass);
+    border-color: var(--brass);
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .favourite-card {
+        transition: none;
+    }
 }
 
 /* Captain illustration on the homepage */
@@ -154,7 +284,7 @@ h2 {
     margin: 0 auto 1rem;
     font-family: 'IM Fell English', serif;
     font-size: 1.75rem;
-    color: #2f4a2c;
+    color: #1b4d3e;
     border: 2px solid var(--brass);
     border-radius: 50%;
 }

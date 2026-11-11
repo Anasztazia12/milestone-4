@@ -37,5 +37,52 @@ document.addEventListener('DOMContentLoaded', function () {
         move(1);
     });
 
+    /* Move to the next dish. */
+    const pauseButton = document.getElementById('favourites-pause');
+    let timer = null;
+    let pausedByUser = motion === 'auto';
+
+    function startSlideshow() {
+        if (pausedByUser || timer) {
+            return;
+        }
+        timer = setInterval(function () {
+            move(1);
+        }, 5000);
+    }
+
+    function stopSlideshow() {
+        clearInterval(timer);
+        timer = null;
+    }
+
+    function updatePauseButton() {
+        if (pausedByUser) {
+            pauseButton.innerHTML = '&#9654;';
+            pauseButton.setAttribute('aria-label', 'Play slideshow');
+        } else {
+            pauseButton.innerHTML = '&#10074;&#10074;';
+            pauseButton.setAttribute('aria-label', 'Pause slideshow');
+        }
+    }
+
+    pauseButton.addEventListener('click', function () {
+        pausedByUser = !pausedByUser;
+        updatePauseButton();
+        if (pausedByUser) {
+            stopSlideshow();
+        } else {
+            startSlideshow();
+        }
+    });
+
+    /* Stop while the visitor is looking at or using the slider. */
+    track.addEventListener('mouseenter', stopSlideshow);
+    track.addEventListener('mouseleave', startSlideshow);
+    track.addEventListener('focusin', stopSlideshow);
+    track.addEventListener('focusout', startSlideshow);
+
     centreCard(cards[1], 'auto');
+    updatePauseButton();
+    startSlideshow();
 });

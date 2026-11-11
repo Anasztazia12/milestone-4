@@ -2,26 +2,27 @@
 {% load static %}
 
 {% block content %}
-<section class="hero-split">
-    <div class="container">
-        <div class="row align-items-center g-5">
-            <div class="col-lg-6 text-white">
-                <p class="eyebrow mb-2">Riverside pub · Food to collect</p>
-                <h1 class="display-4">Proper pub food, ready when you are</h1>
-                <p class="lead">Order online, pay in advance and collect at a time that suits you.</p>
-                <a href="{% url 'menu' %}" class="btn btn-brass btn-lg mb-2">Order now</a>
-                {% if not user.is_authenticated %}
-                <a href="{% url 'account_signup' %}" class="btn btn-outline-light btn-lg mb-2">Create an account</a>
-                {% endif %}
-            </div>
-            <div class="col-lg-6">
-                <img src="{% static 'images/pub-interior.jpg' %}" alt="Warm wooden interior of a pub dining room" class="hero-photo">
-            </div>
+<section class="hero-frame">
+    <div class="hero-card">
+        <img src="{% static 'images/sandwich.jpg' %}" alt="Tall burger with bacon, lettuce, tomato and melted cheese" class="hero-bg">
+        <div class="hero-content container text-white">
+            <p class="eyebrow mb-3">Riverside pub · Food to collect</p>
+            <h1 class="hero-title">
+                <span class="d-block">Proper</span>
+                <span class="d-block">pub food</span>
+                <span class="hero-title-small d-block">ready when you are</span>
+            </h1>
+            <p class="lead mb-4">Order online, pay in advance and collect at a time that suits you.</p>
+            <a href="{% url 'menu' %}" class="btn btn-brass btn-lg rounded-pill px-4 mb-2">Order now</a>
+            {% if not user.is_authenticated %}
+            <a href="{% url 'account_signup' %}" class="btn btn-outline-light btn-lg rounded-pill px-4 mb-2">Create an account</a>
+            {% endif %}
+            <p class="hero-rating mt-4 mb-0">
+                <span class="hero-stars" role="img" aria-label="Rated 5 out of 5">&#9733;&#9733;&#9733;&#9733;&#9733;</span>
+                <span>Loved by our locals</span>
+            </p>
         </div>
     </div>
-    <svg class="hero-wave" viewBox="0 0 1440 80" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-        <path d="M0,40 C240,80 480,0 720,40 C960,80 1200,0 1440,40 L1440,80 L0,80 Z"></path>
-    </svg>
 </section>
 
 <section class="py-5" aria-labelledby="how-it-works">
@@ -47,70 +48,72 @@
     </div>
 </section>
 
-<section id="favourites" class="py-5 bg-white" aria-labelledby="favourites-title">
+<section id="favourites" class="py-5 favourites-section" aria-labelledby="favourites-title">
     <div class="container">
-        <h2 id="favourites-title" class="text-center mb-4">Pub favourites</h2>
+        <p class="eyebrow text-center mb-2">From our kitchen</p>
+        <h2 id="favourites-title" class="text-center text-white mb-4">Pub favourites</h2>
         <div id="favourites-track" class="favourites-track" tabindex="0" aria-label="Pub favourite dishes, scroll sideways to see more">
             <article class="favourite-card card">
                 <img src="{% static 'images/fish-and-chips.jpg' %}" class="favourite-image card-img-top" alt="Battered fish with chips">
-                <div class="card-body text-center">
+                <div class="card-body text-center p-4">
                     <h3 class="h5 card-title">Fish and Chips</h3>
                     <p class="card-text">Crispy battered cod with chunky chips.</p>
-                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm">Order now</a>
+                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm rounded-pill px-3">Order now</a>
                 </div>
             </article>
             <article class="favourite-card card">
                 <img src="{% static 'images/shepherds-pie.jpg' %}" class="favourite-image card-img-top" alt="Shepherd's pie topped with mashed potato">
-                <div class="card-body text-center">
+                <div class="card-body text-center p-4">
                     <h3 class="h5 card-title">Shepherd's Pie</h3>
                     <p class="card-text">Slow-cooked lamb under golden mashed potato.</p>
-                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm">Order now</a>
+                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm rounded-pill px-3">Order now</a>
                 </div>
             </article>
             <article class="favourite-card card">
                 <img src="{% static 'images/beef-stew-and-fries.jpg' %}" class="favourite-image card-img-top" alt="Beef stew served with chips">
-                <div class="card-body text-center">
+                <div class="card-body text-center p-4">
                     <h3 class="h5 card-title">Beef Stew and Chips</h3>
                     <p class="card-text">Rich beef stew with rosemary and crispy chips.</p>
-                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm">Order now</a>
+                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm rounded-pill px-3">Order now</a>
                 </div>
             </article>
             <article class="favourite-card card">
                 <img src="{% static 'images/burger.jpg' %}" class="favourite-image card-img-top" alt="Double beef burger with cheese">
-                <div class="card-body text-center">
+                <div class="card-body text-center p-4">
                     <h3 class="h5 card-title">Double Beef Burger</h3>
                     <p class="card-text">Two beef patties, cheese, lettuce and tomato in a toasted bun.</p>
-                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm">Order now</a>
+                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm rounded-pill px-3">Order now</a>
                 </div>
             </article>
             <article class="favourite-card card">
                 <img src="{% static 'images/blueberry-cheesecake.jpg' %}" class="favourite-image card-img-top" alt="Baked cheesecake topped with blueberries">
-                <div class="card-body text-center">
+                <div class="card-body text-center p-4">
                     <h3 class="h5 card-title">Blueberry Cheesecake</h3>
                     <p class="card-text">Baked cheesecake topped with blueberries.</p>
-                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm">Order now</a>
+                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm rounded-pill px-3">Order now</a>
                 </div>
             </article>
             <article class="favourite-card card">
                 <img src="{% static 'images/meat-pie.jpg' %}" class="favourite-image card-img-top" alt="Steak pie cut open to show beef in gravy">
-                <div class="card-body text-center">
+                <div class="card-body text-center p-4">
                     <h3 class="h5 card-title">Steak Pie</h3>
                     <p class="card-text">Tender beef in rich gravy under a golden pastry crust.</p>
-                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm">Order now</a>
+                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm rounded-pill px-3">Order now</a>
                 </div>
             </article>
             <article class="favourite-card card">
                 <img src="{% static 'images/beef-steak.jpg' %}" class="favourite-image card-img-top" alt="Grilled steak with roast potatoes">
-                <div class="card-body text-center">
+                <div class="card-body text-center p-4">
                     <h3 class="h5 card-title">Beef Steak</h3>
                     <p class="card-text">Grilled sirloin steak with seasonal vegetables.</p>
-                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm">Order now</a>
+                    <a href="{% url 'menu' %}" class="btn btn-success btn-sm rounded-pill px-3">Order now</a>
                 </div>
             </article>
         </div>
         <div class="d-flex justify-content-center gap-2 mt-3">
-            <button id="favourites-prev" type="button" class="btn btn-outline-success" aria-label="Previous dish">&larr;</button>
-            <button id="favourites-next" type="button" class="btn btn-outline-success" aria-label="Next dish">&rarr;</button>
+            <button id="favourites-prev" type="button" class="btn favourites-arrow" aria-label="Previous dish">&larr;</button>
+            <button id="favourites-pause" type="button" class="btn favourites-arrow" aria-label="Pause slideshow">&#10074;&#10074;</button>
+            <button id="favourites-next" type="button" class="btn favourites-arrow" aria-label="Next dish">&rarr;</button>
         </div>
     </div>
 </section>
