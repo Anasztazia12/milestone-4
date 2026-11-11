@@ -25,6 +25,7 @@ class Order(models.Model):
     )
     full_name = models.CharField(max_length=100)
     phone_number = models.CharField(max_length=20, blank=True, default='')
+    email = models.EmailField(max_length=254, blank=True, default='')
     collection_time = models.DateTimeField(null=True, blank=True)
     status = models.CharField(
         max_length=20, choices=STATUS_CHOICES, default='received'

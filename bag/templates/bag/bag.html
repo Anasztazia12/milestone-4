@@ -24,16 +24,18 @@
                         <th scope="row">{{ row.item.name }}</th>
                         <td>£{{ row.item.price }}</td>
                         <td>
-                            <form class="d-flex gap-2 mb-2" method="post" action="{% url 'bag:adjust_bag' row.item.pk %}">
-                                {% csrf_token %}
-                                <label class="visually-hidden" for="bag-quantity-{{ row.item.pk }}">Quantity of {{ row.item.name }}</label>
-                                <input class="form-control form-control-sm w-auto" id="bag-quantity-{{ row.item.pk }}" name="quantity" type="number" min="0" max="99" value="{{ row.quantity }}" required>
-                                <button class="btn btn-outline-success btn-sm" type="submit">Update<span class="visually-hidden"> {{ row.item.name }}</span></button>
-                            </form>
-                            <form method="post" action="{% url 'bag:remove_from_bag' row.item.pk %}">
-                                {% csrf_token %}
-                                <button class="btn btn-link btn-sm text-danger p-0" type="submit">Remove<span class="visually-hidden"> {{ row.item.name }}</span></button>
-                            </form>
+                            <div class="d-flex flex-wrap align-items-center gap-2">
+                                <form class="d-flex gap-2" method="post" action="{% url 'bag:adjust_bag' row.item.pk %}">
+                                    {% csrf_token %}
+                                    <label class="visually-hidden" for="bag-quantity-{{ row.item.pk }}">Quantity of {{ row.item.name }}</label>
+                                    <input class="form-control form-control-sm w-auto" id="bag-quantity-{{ row.item.pk }}" name="quantity" type="number" min="0" max="99" value="{{ row.quantity }}" required>
+                                    <button class="btn btn-outline-success btn-sm" type="submit">Update<span class="visually-hidden"> {{ row.item.name }}</span></button>
+                                </form>
+                                <form method="post" action="{% url 'bag:remove_from_bag' row.item.pk %}">
+                                    {% csrf_token %}
+                                    <button class="btn btn-outline-danger btn-sm" type="submit">Remove<span class="visually-hidden"> {{ row.item.name }}</span></button>
+                                </form>
+                            </div>
                         </td>
                         <td>£{{ row.subtotal }}</td>
                     </tr>
