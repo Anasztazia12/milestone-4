@@ -5,6 +5,7 @@
     --bs-success-rgb: 27, 77, 62;
     --bs-light-rgb: 247, 243, 234;
     --brass: #b8913a;
+    --brass-light: #d4b064;
 }
 
 .btn-success {
@@ -319,7 +320,8 @@ h2 {
 
 /* Small brass label above the main heading */
 .eyebrow {
-    color: var(--brass);
+    /* Lighter brass so small text passes the 4.5:1 contrast check on dark green */
+    color: var(--brass-light);
     font-size: 0.85rem;
     font-weight: 600;
     letter-spacing: 0.2em;
