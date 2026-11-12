@@ -342,3 +342,58 @@ h2 {
     border: 2px solid var(--brass);
     border-radius: 50%;
 }
+
+/* Bag page: narrow quantity box */
+.bag-quantity {
+    width: 4.5rem;
+}
+
+/* Bag page on phones: each dish becomes a small card instead of a wide table row */
+@media (max-width: 767.98px) {
+    .bag-table thead {
+        display: none;
+    }
+
+    .bag-table tr {
+        display: grid;
+        grid-template-columns: 1fr auto;
+        gap: 0.5rem 1rem;
+        padding: 1rem 0;
+        border-bottom: 1px solid var(--bs-border-color);
+    }
+
+    .bag-table th,
+    .bag-table td {
+        display: block;
+        padding: 0;
+        border: 0;
+        background-color: transparent;
+    }
+
+    .bag-price {
+        text-align: right;
+    }
+
+    .bag-actions {
+        grid-column: 1 / -1;
+    }
+
+    .bag-subtotal {
+        grid-column: 1 / -1;
+        text-align: right;
+    }
+
+    .bag-subtotal[data-label]::before {
+        content: attr(data-label) ": ";
+        color: var(--bs-secondary-color);
+    }
+
+    .bag-table tfoot tr {
+        grid-template-columns: 1fr auto;
+        border-bottom: 0;
+    }
+
+    .bag-table tfoot .bag-subtotal {
+        grid-column: auto;
+    }
+}

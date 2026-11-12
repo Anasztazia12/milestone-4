@@ -1,0 +1,39 @@
+{% extends 'base.html' %}
+
+{% block title %}Checkout | The Old Ferryman{% endblock %}
+
+{% block content %}
+<section class="py-5">
+    <div class="container">
+        <h1 class="mb-4">Checkout</h1>
+        <div class="row g-5">
+            <div class="col-lg-7">
+                <h2 class="h4 mb-3">Your details</h2>
+                <form method="post" action="{% url 'checkout:checkout' %}">
+                    {% csrf_token %}
+                    {% for field in form %}
+                    <div class="mb-3">
+                        <label class="form-label" for="{{ field.id_for_label }}">{{ field.label }}</label>
+                        {{ field }}
+                        {% for error in field.errors %}
+                        <p class="text-danger small mb-0">{{ error }}</p>
+                        {% endfor %}
+                    </div>
+                    {% endfor %}
+                    <p class="text-secondary small">Card payment is added in the next step.</p>
+                </form>
+            </div>
+            <div class="col-lg-5">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <h2 class="h4">Order total</h2>
+                        <p class="display-6 mb-1">£{{ bag_total|floatformat:2 }}</p>
+                        <p class="text-secondary mb-3">{{ bag_count }} item{{ bag_count|pluralize }} for collection</p>
+                        <a class="btn btn-outline-success" href="{% url 'bag:view_bag' %}">Edit bag</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
