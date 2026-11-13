@@ -89,3 +89,44 @@ FAILED (failures=1)
 **Fix:** I put `clean_collection_time` back in `OrderForm`. It checks that the collection time is at least 20 minutes from now, because the kitchen needs time to cook, and shows "Please choose a time at least 20 minutes from now." if it is not. After the fix all 44 tests passed.
 
 **What I learned:** "True is not false" means the test expected `False` but got `True`. Here the form said "valid" when it should have said "invalid", so the missing piece was a validation rule, not a crash.
+
+### 5. Past collection time still accepted after adding the check back
+
+**Bug:** after I added `clean_collection_time` back to the form, I expected all tests to pass. The same test still failed:
+
+```text
+FAIL: test_collection_time_in_the_past_is_invalid (checkout.tests.OrderFormTests)
+  File "checkout/tests.py", line 107, in test_collection_time_in_the_past_is_invalid
+    self.assertFalse(form.is_valid())
+AssertionError: True is not false
+
+Ran 44 tests
+FAILED (failures=1)
+```
+
+**Cause:** the error points to the form, so I opened `checkout/forms.py` and read the method line by line. It stopped after working out the earliest time:
+
+```python
+def clean_collection_time(self):
+    """The kitchen needs at least 60 minutes to cook the food."""
+    collection_time = self.cleaned_data['collection_time']
+    earliest = timezone.now() + timedelta(minutes=60)
+```
+
+The method never compared `earliest` with the chosen time, so it never raised an error. It also had no `return`, so Python returned `None`. Django then saves `None` as the collection time, so a real order would have lost the time the customer chose. No test checks this, so the tests alone would not have shown it.
+
+**Fix:** I finished the method with the `if` check, the `raise forms.ValidationError(...)` and `return collection_time`.
+
+**What I learned:** a `clean_<field>` method must always return the value. If it does not, the field becomes empty without any error message.
+
+### 6. Sign out page had no way to go back
+
+**Bug:** when I clicked "Log out" in the navbar, the sign out page only had a plain "Sign Out" button. There was no way to change my mind and stay logged in, and the button did not match the rest of the site.
+
+![Sign out page with only one button](assets/images/test/logout-no-cancel.png)
+
+**Cause:** the page came from django-allauth's default template, which only has the sign out button and no Bootstrap classes.
+
+**Fix:** I made my own `templates/account/logout.html`. It keeps the allauth form, but the button now has the site's green style, and there is a "Cancel" button that goes back to the home page. I also added the test `test_logout_page_has_cancel_link` in `home/tests.py`. It failed before the new template and passed after it.
+
+**What I learned:** I can replace any allauth page by putting a template with the same name in my own `templates/account/` folder.

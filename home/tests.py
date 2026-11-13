@@ -49,3 +49,11 @@ class AccountPageTests(TestCase):
         self.assertTrue(
             get_user_model().objects.filter(email='new@example.com').exists()
         )
+    def test_logout_page_has_cancel_link(self):
+        user = get_user_model().objects.create_user(
+            username='guest', email='guest@example.com', password='Ferry-pass-123'
+        )
+        self.client.force_login(user)
+        response = self.client.get(reverse('account_logout'))
+        self.assertContains(response, 'Cancel')
+        self.assertContains(response, 'btn btn-success')
