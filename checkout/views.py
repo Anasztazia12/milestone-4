@@ -16,7 +16,7 @@ def checkout(request):
     form = OrderForm(initial={
         'full_name': request.user.get_full_name(),
         'email': request.user.email,
-    
+      })
 
     return render(request, 'checkout/checkout.html', {
         'form': form,

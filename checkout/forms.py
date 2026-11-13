@@ -26,3 +26,8 @@ class OrderForm(forms.ModelForm):
         for field in self.fields.values():
             field.widget.attrs['class'] = 'form-control'
 
+    def clean_collection_time(self):
+        """The kitchen needs at least 60 minutes to cook the food."""
+        collection_time = self.cleaned_data['collection_time']
+        earliest = timezone.now() + timedelta(minutes=60)
+       
