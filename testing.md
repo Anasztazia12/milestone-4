@@ -8,125 +8,58 @@ The project uses Django's built-in test framework. Run all tests with:
 python manage.py test
 ```
 
-## Bugs found by the tests
+## Bugs
 
-### 1. Site stopped working after pasting code into the wrong file
+### 1. Bag stopped working after adding menu sorting
 
-**Bug:** after adding sorting to the menu, the tests would not run. The error said:
-
-```text
-File "bag/views.py", line 5
-ImportError: cannot import name 'Category' from 'bag.models'
-```
+**Bug:** the tests would not run: `ImportError: cannot import name 'Category' from 'bag.models'`.
 
 ![Test error after pasting into the wrong file](assets/images/test/bag-views-import-error.png)
 
-**Cause:** I pasted the new sorting code into `bag/views.py` instead of `menu/views.py`, so the bag code was replaced.
+**Fix:** restored `bag/views.py` with git and moved the sorting code to `menu/views.py`.
 
-**Fix:** I used `git restore --source=HEAD~1 bag/views.py` to get the bag code back, and moved the sorting code to `menu/views.py`. More detail is in the Bugs section of the [README](README.md#bugs).
+### 2. Homepage favourites test failed
 
-### 2. Homepage favourites test failed after changing the dishes
-
-**Bug:** after I changed the dishes on the homepage, one test failed:
-
-```text
-FAIL: test_favourites_show_six_dishes_with_controls (home.tests.HomePageTests)
-  File "home/tests.py", line 15, in test_favourites_show_six_dishes_with_controls
-    self.assertContains(response, 'class="favourite-card', count=6)
-AssertionError: 7 != 6 : Found 7 instances of 'class="favourite-card' (expected 6)
-
-Ran 28 tests
-FAILED (failures=1)
-```
+**Bug:** `AssertionError: 7 != 6` in the favourites test.
 
 ![Homepage favourites test failing](assets/images/test/home-favourites-test-fail.png)
 
-**Cause:** I replaced Homemade Baby Puree with two dishes, Steak Pie and Beef Steak, so the homepage now has 7 cards. The test still expected 6 cards and the text "Baby Puree".
+**Fix:** updated the test to expect 7 dishes.
 
-**Fix:** I updated the test to expect 7 cards and to check for "Steak Pie" instead of "Baby Puree". After the fix all 28 tests passed.
+### 3. No test could run and the server would not start
 
-**What I learned:** always run the full `python manage.py test`, not just one app, because a change in one page can break a test in another app.
-
-### 3. Missing bracket in the checkout view stopped every test
-
-**Bug:** after I removed the closing `})` in `checkout/views.py`, no test could run and the server would not start. The error said:
-
-```text
-File "checkout/urls.py", line 3, in <module>
-    from . import views
-File "checkout/views.py", line 16
-    form = OrderForm(initial={
-                             ^
-SyntaxError: '{' was never closed
-```
+**Bug:** `SyntaxError: '{' was never closed` in `checkout/views.py`.
 
 ![Syntax error in the checkout view](assets/images/test/checkout-syntax-error.png)
 
-**Cause:** the line `form = OrderForm(initial={` opens a bracket `(` and a curly bracket `{`. Without `})` at the end, Python cannot read the file. Django loads every app's URLs when it starts, so one broken file stops the whole site, not only the checkout.
-
-**Fix:** I put `})` back after the last line of the dictionary. Brackets close in the opposite order to how they open, so `}` comes first and then `)`. After the fix 43 tests passed and only the collection time test failed, because I had also removed that check.
-
-**What I learned:** read a long error from the bottom up. The last lines name the file, the line and the problem, and the `^` points at the bracket that was never closed.
+**Fix:** added `})` back.
 
 ### 4. Checkout form accepted a collection time in the past
 
-**Bug:** after I removed the collection time check from `checkout/forms.py`, one test failed:
-
-```text
-FAIL: test_collection_time_in_the_past_is_invalid (checkout.tests.OrderFormTests)
-  File "checkout/tests.py", line 107, in test_collection_time_in_the_past_is_invalid
-    self.assertFalse(form.is_valid())
-AssertionError: True is not false
-
-Ran 44 tests
-FAILED (failures=1)
-```
+**Bug:** `test_collection_time_in_the_past_is_invalid` failed with `AssertionError: True is not false`.
 
 ![Collection time test failing](assets/images/test/collection-time-test-fail.png)
 
-**Cause:** the test fills in the form with a collection time in the past and expects the form to be invalid. Without the `clean_collection_time` method the form had no rule about the time, so it said the form was valid. A customer could have ordered food for yesterday.
-
-**Fix:** I put `clean_collection_time` back in `OrderForm`. It checks that the collection time is at least 20 minutes from now, because the kitchen needs time to cook, and shows "Please choose a time at least 20 minutes from now." if it is not. After the fix all 44 tests passed.
-
-**What I learned:** "True is not false" means the test expected `False` but got `True`. Here the form said "valid" when it should have said "invalid", so the missing piece was a validation rule, not a crash.
+**Fix:** added `clean_collection_time` back to `OrderForm`.
 
 ### 5. Past collection time still accepted after adding the check back
 
-**Bug:** after I added `clean_collection_time` back to the form, I expected all tests to pass. The same test still failed:
+**Bug:** the same test still failed with `AssertionError: True is not false`.
 
-```text
-FAIL: test_collection_time_in_the_past_is_invalid (checkout.tests.OrderFormTests)
-  File "checkout/tests.py", line 107, in test_collection_time_in_the_past_is_invalid
-    self.assertFalse(form.is_valid())
-AssertionError: True is not false
-
-Ran 44 tests
-FAILED (failures=1)
-```
-
-**Cause:** the error points to the form, so I opened `checkout/forms.py` and read the method line by line. It stopped after working out the earliest time:
-
-```python
-def clean_collection_time(self):
-    """The kitchen needs at least 60 minutes to cook the food."""
-    collection_time = self.cleaned_data['collection_time']
-    earliest = timezone.now() + timedelta(minutes=60)
-```
-
-The method never compared `earliest` with the chosen time, so it never raised an error. It also had no `return`, so Python returned `None`. Django then saves `None` as the collection time, so a real order would have lost the time the customer chose. No test checks this, so the tests alone would not have shown it.
-
-**Fix:** I finished the method with the `if` check, the `raise forms.ValidationError(...)` and `return collection_time`.
-
-**What I learned:** a `clean_<field>` method must always return the value. If it does not, the field becomes empty without any error message.
+**Fix:** finished the method with the `if`, the `raise` and `return collection_time`.
 
 ### 6. Sign out page had no way to go back
 
-**Bug:** when I clicked "Log out" in the navbar, the sign out page only had a plain "Sign Out" button. There was no way to change my mind and stay logged in, and the button did not match the rest of the site.
+**Bug:** the sign out page only had a plain "Sign Out" button, with no way to cancel.
 
 ![Sign out page with only one button](assets/images/test/logout-no-cancel.png)
 
-**Cause:** the page came from django-allauth's default template, which only has the sign out button and no Bootstrap classes.
+**Fix:** added my own `templates/account/logout.html` with a green "Sign out" button and a "Cancel" button.
 
-**Fix:** I made my own `templates/account/logout.html`. It keeps the allauth form, but the button now has the site's green style, and there is a "Cancel" button that goes back to the home page. I also added the test `test_logout_page_has_cancel_link` in `home/tests.py`. It failed before the new template and passed after it.
+### 7. Checkout form let me pick a collection time in the past
 
-**What I learned:** I can replace any allauth page by putting a template with the same name in my own `templates/account/` folder.
+**Bug:** the date picker let me choose a date that had already passed.
+
+![Checkout form with a past collection time](assets/images/test/checkout-past-date.png)
+
+**Fix:** finished `clean_collection_time` and added a `min` value to the input.
