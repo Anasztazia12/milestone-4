@@ -63,3 +63,9 @@ python manage.py test
 ![Checkout form with a past collection time](assets/images/test/checkout-past-date.png)
 
 **Fix:** finished `clean_collection_time` and added a `min` value to the input.
+
+### 8. A collection time one hour ahead was rejected
+
+**Bug:** `test_collection_time_in_one_hour_is_valid` failed with `AssertionError: False is not true`.
+
+**Fix:** changed the minimum time from 60 minutes to 20 minutes, so an order for one hour ahead is accepted.
