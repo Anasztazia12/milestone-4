@@ -1,4 +1,5 @@
 {% extends 'base.html' %}
+{% load static %}
 
 {% block title %}Page Not Found | The Old Ferryman{% endblock %}
 
@@ -7,10 +8,18 @@
     <div class="container">
         <h1>Page not found</h1>
         <p class="lead">Sorry, this page has drifted off. It may have moved or never existed.</p>
+        <p id="redirect-message" data-home-url="{% url 'home' %}">
+            Taking you back to the home page in <span id="redirect-seconds">10</span> seconds.
+        </p>
         <div class="d-flex flex-wrap justify-content-center gap-2">
             <a class="btn btn-success" href="{% url 'home' %}">Back to home</a>
             <a class="btn btn-outline-success" href="{% url 'menu' %}">See the menu</a>
+            <button class="btn btn-outline-secondary" id="redirect-stop" type="button">Stay on this page</button>
         </div>
     </div>
 </section>
+{% endblock %}
+
+{% block extra_js %}
+<script src="{% static 'js/redirect-countdown.js' %}"></script>
 {% endblock %}
