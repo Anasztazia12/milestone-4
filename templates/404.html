@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}Page Not Found | The Old Ferryman{% endblock %}
+
+{% block content %}
+<section class="py-5 text-center">
+    <div class="container">
+        <h1>Page not found</h1>
+        <p class="lead">Sorry, this page has drifted off. It may have moved or never existed.</p>
+        <div class="d-flex flex-wrap justify-content-center gap-2">
+            <a class="btn btn-success" href="{% url 'home' %}">Back to home</a>
+            <a class="btn btn-outline-success" href="{% url 'menu' %}">See the menu</a>
+        </div>
+    </div>
+</section>
+{% endblock %}
